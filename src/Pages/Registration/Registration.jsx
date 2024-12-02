@@ -4,6 +4,8 @@ import "../../Pages/Registration/registration.scss";
 import { useFormik } from 'formik';
 import { register } from "../../redux/authSlice"
 import { useDispatch, useSelector } from "react-redux";
+import Alert from '@mui/material/Alert';
+import CheckIcon from '@mui/icons-material/Check';
 
 
 
@@ -85,7 +87,9 @@ const Registration = () => {
 
         // dispatch the register action
         dispatch(register({ name: values.name, email: values.email, password: values.password }));
+        // Display success message
         setMessage({ errors: false, msg: "Registration Successful!" });
+
         resetForm();
     }
 
@@ -103,16 +107,17 @@ const Registration = () => {
 
         <div className="registration">
 
+            {/* Displaying the alert message */}
+            {message.msg && (
+                <Alert icon={<CheckIcon fontSize="inherit" />} severity={message.errors ? "error" : "success"}>
+                    {message.msg}
+                </Alert>
+            )}
+
+
             <div className="regContainer">
 
 
-                {message.msg && (
-                    <div className={`message ${message.errors ? "error-message" : "success-message"}`}
-                        aria-live="polite"
-                    >
-                        {message.msg}
-                    </div>
-                )}
 
 
                 <div className="regTopic">

@@ -1,6 +1,6 @@
 import { React, useState } from "react";
 import "../../Pages/Login/login.scss";
-import { Link } from "react-router-dom";
+import { Link,  useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../../redux/authSlice";
@@ -9,6 +9,7 @@ const Login = () => {
 
     const [message, setMessage] = useState({ errors: false, msg: "" });
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const registeredUsers = useSelector((state) => state.auth.registeredUsers);
 
 
@@ -55,6 +56,9 @@ const Login = () => {
         if (user) {
             dispatch(login({ email: user.email, password: user.password }));
             setMessage({ errors: false, msg: "Login successful!" });
+
+               // redirect to Dashboard after successful login
+               navigate("/dashboard");
         } else {
             setMessage({ errors: true, msg: "Invalid email or password!" });
         }
