@@ -21,15 +21,15 @@ const ImageSlider = () => {
     ];
 
     const settings = {
-        dots: true,             // Show navigation dots
-        infinite: true,         // Infinite scrolling
-        speed: 1000,            // Transition speed (adjustable)
-        fade: true,             // Enable fade transition
-        slidesToShow: 1,        // Number of slides to show
-        slidesToScroll: 1,      // Number of slides to scroll
-        autoplay: true,         // Enable autoplay
-        autoplaySpeed: 3000,    // Autoplay interval
-        arrows: true,           // Show left/right navigation arrows
+        dots: true,             
+        infinite: true,        
+        speed: 1000,            
+        fade: true,            
+        slidesToShow: 1,        
+        slidesToScroll: 1,     
+        autoplay: true,      
+        autoplaySpeed: 3000,    
+        arrows: true,           
     };
 
     return (

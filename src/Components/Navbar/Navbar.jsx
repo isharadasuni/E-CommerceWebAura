@@ -7,13 +7,13 @@ import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import image from "../../Images/icon.png";  
+import image from "../../Images/icon.png";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -21,8 +21,11 @@ const pages = ['NEW ARRIVALS', 'Products', 'Brands', 'contacts', 'about'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const Navbar = () => {
+
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
+    const navigate = useNavigate();
+
 
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
@@ -38,6 +41,44 @@ const Navbar = () => {
     const handleCloseUserMenu = () => {
         setAnchorElUser(null);
     };
+
+
+    const handleNewArrivalsClick = () => {
+        const element = document.getElementById("newArivals");
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
+
+    const handlePageClick = (page) => {
+
+        navigate('/productPage');
+
+    };
+
+
+    const handleBrandClick = () => {
+        const element = document.getElementById("brand");
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
+    const handleContactClick = () => {
+        const element = document.getElementById("contact");
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
+    const handleAboutClick = () => {
+        const element = document.getElementById("about");
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
 
     return (
         <AppBar position="static" sx={{ backgroundColor: '#974e4e;' }}>
@@ -62,7 +103,7 @@ const Navbar = () => {
                             letterSpacing: '.3rem',
                             color: 'inherit',
                             textDecoration: 'none',
-                          
+
                         }}
                     >
                         AURA
@@ -122,12 +163,14 @@ const Navbar = () => {
                         AURA
                     </Typography>
 
-                    <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'center', gap:'30px' }}>
+                    <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'center', gap: '30px' }}>
                         {pages.map((page) => (
                             <Button
                                 key={page}
-                                onClick={handleCloseNavMenu}
-                                sx={{ my: 2, color: 'white', display: 'block', fontSize:'17px' }}
+                                onClick={page === 'NEW ARRIVALS' ? handleNewArrivalsClick : page === 'Products' ? handlePageClick :
+                                    page === 'Brands' ? handleBrandClick : page === 'contacts' ? handleContactClick :
+                                        page === 'about' ? handleAboutClick : handleCloseNavMenu}
+                                sx={{ my: 2, color: 'white', display: 'block', fontSize: '17px' }}
                             >
                                 {page}
                             </Button>
@@ -138,7 +181,7 @@ const Navbar = () => {
 
                         <Tooltip title="Shopping Cart">
                             <IconButton sx={{ p: 0 }}>
-                                <ShoppingCartIcon sx={{ fontSize: 30, color: 'white', marginRight:'20px'}} />
+                                <ShoppingCartIcon sx={{ fontSize: 30, color: 'white', marginRight: '20px' }} />
                             </IconButton>
                         </Tooltip>
 

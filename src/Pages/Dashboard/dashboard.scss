@@ -1,6 +1,45 @@
-.dashborad{
+.dashboard {
+    font-family: 'Roboto', sans-serif;
+    .newArivals, .product, .brand, .contact, .about {
+        margin-top: -90px;
+        display: flex;            
+        flex-direction: column;   
+        align-items: center;      
+        justify-content: center;  
+        height: 100%;      
+        color: #974e4e;  
+        font-weight: bold; 
+        letter-spacing: 3px;    
+
+        .mainTopic {
+            text-align: center;   
+            margin: 10px 0;  
+            font-size: 15px;     
+        }
+
+        .subTopic {
+            text-align: center;    
+            margin: 5px 0; 
+            font-size: 30px;        
+        }
+    }
 
 
+    .product{
+        margin-top: 10px;
+        background-color: rgba(131, 120, 131, 0.411);
+    }
 
-    
+    .brand{
+        margin-top: 10px;
+    }
+
+    .contact{
+        margin-top: 10px;
+        background-color: rgba(131, 120, 131, 0.411);
+    }
+
+    .about{
+        margin-top: 10px;
+    }
 }
