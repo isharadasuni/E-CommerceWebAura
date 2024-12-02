@@ -54,15 +54,6 @@
 
             }
 
-            .error {
-                color: red;
-                font-size: 10px;
-            }
-            
-            .error-message {
-                color: red;
-                margin-bottom: 10px;
-            }
 
         }
 
@@ -109,6 +100,20 @@
         }
 
 
+        .error {
+            color: red;
+            font-size: 10px;
+        }
+        
+        .error-message {
+            color: red;
+            margin-top: 10px;
+        }
+
+        .success-message{
+            color:rgb(1, 175, 79);
+            margin-top: 10px;
+        }
 
     }
 }

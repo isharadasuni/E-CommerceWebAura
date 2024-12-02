@@ -15,15 +15,16 @@
         width: 300px;
         background-color: rgba(245, 223, 182, 0.849);
         box-shadow: 0 2px 10px #974e4e;
-        height: 300px;
+        height: 400px;
       
       
 
         .regTopic{
             font-weight: bold;
             font-size: 30px;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             align-items: center;
+            
             
         }
 
@@ -39,7 +40,7 @@
                 border: 1px solid #974e4e;
                 width: 240px;
                 height: 24px;
-                margin-top: 10px;
+                margin-top: 15px;
                 font-size: 12px;
                 background-color: rgb(248, 243, 243);
                
@@ -51,12 +52,14 @@
                 }
 
             }
+            
+           
 
         }
 
 
         Button {
-            margin-top: 10px;
+            margin-top: 20px;
             width: 240px;
             height: 25px;
             border-radius: 5px;
@@ -76,6 +79,31 @@
                 transform: scale(0.99);
             }
         }
+
+
+        .signInLink {
+            font-size: 10px;
+            margin-top: 10px;
+           
+
+        }
+
+        .error{
+            color: red;
+            font-size: 10px;
+        }
+        
+        .error-message {
+            color: red;
+            margin-bottom: 10px;
+        }
+
+        .success-message{
+            color: rgb(1, 175, 79);
+            margin-bottom: 10px;
+            font-size: 15px;
+        }
+
 
     }
 

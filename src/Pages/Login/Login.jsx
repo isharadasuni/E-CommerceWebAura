@@ -2,10 +2,14 @@ import { React, useState } from "react";
 import "../../Pages/Login/login.scss";
 import { Link } from "react-router-dom";
 import { useFormik } from "formik";
+import { useDispatch, useSelector } from "react-redux";
+import { login } from "../../redux/authSlice";
 
 const Login = () => {
 
     const [message, setMessage] = useState({ errors: false, msg: "" });
+    const dispatch = useDispatch();
+    const registeredUsers = useSelector((state) => state.auth.registeredUsers);
 
 
     // Regex for validating email
@@ -42,22 +46,21 @@ const Login = () => {
     };
 
 
+    // form submission handler
+    const onSubmit = (values, { resetForm }) => {
+        const user = registeredUsers.find(
+            (u) => u.email === values.email && u.password === values.password
+        );
 
-    const onSubmit = async (values, { resetForm }) => {
-
-        if (
-            !values.email ||
-            !values.password
-        ) {
-            setMessage({ errors: true, msg: "All fields are mandatory!" });
-            return;
+        if (user) {
+            dispatch(login({ email: user.email, password: user.password }));
+            setMessage({ errors: false, msg: "Login successful!" });
+        } else {
+            setMessage({ errors: true, msg: "Invalid email or password!" });
         }
-        else {
-            setMessage({ errors: false, msg: "Successfully logged in!" });
-            resetForm();
-        };
+
         resetForm();
-    }
+    };
 
 
 
@@ -80,7 +83,7 @@ const Login = () => {
                     Login
                 </div>
 
-
+               
 
                 <div className="inputLogin">
 
@@ -96,6 +99,17 @@ const Login = () => {
                         <div className="error">{formik.errors.password}</div>
                     )}
                 </div>
+
+                {message.msg && (
+                    <div
+                        className={`error ${message.errors ? "error-message" : "success-message"}`}
+                        aria-live="polite"
+                    >
+                        {message.msg}
+                    </div>
+                )}
+
+
 
                 <div className="forgetPassword">
                     Forgot Password?
