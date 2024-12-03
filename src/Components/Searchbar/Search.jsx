@@ -4,7 +4,7 @@ import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
 import { MenuItem, Select } from '@mui/material';
 
-// Styles for search bar and dropdown
+
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
   borderRadius: theme.shape.borderRadius,
@@ -54,7 +54,7 @@ const DropdownSelect = styled(Select)(({ theme }) => ({
   },
 }));
 
-// Update Search Component to include min and max price inputs
+// Update Search Component 
 const SearchWithPriceFilter = ({ category, setCategory, searchTerm, setSearchTerm, minPrice, setMinPrice, maxPrice, setMaxPrice }) => {
   const handleCategoryChange = (event) => {
     setCategory(event.target.value);

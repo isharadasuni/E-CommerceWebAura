@@ -25,7 +25,7 @@ const ProductPage = () => {
       description: 'JJimmy Choo’s Rose Passion eau de parfum encapsulates the label’s sensuality and femininity with its floral yet woody notes. Building its base around a harmonious blend of vanilla and sandalwood, the fragrance is met with delicate orchids and jasmines at its core. A marriage of fresh coconut water and frangipani flowers confirms this perfume’s summer-ready status, becoming the front-runner for your warm-weather signature scent.',
       size: '40ml',
       category: 'Women',
-      sizes: ['40ml'], 
+      sizes: ['40ml'],
     },
     {
       id: 2,
@@ -37,7 +37,7 @@ const ProductPage = () => {
       description: 'Gucci Bloom Acqua Di Fiori Eau de Toilette is a new chapter that adds to the world of Gucci Bloom. The addition of green galbanum together with dainty cassis buds brings the soft dewy freshness of the early petal and a light, aquatic composition to the signature scent, designed to celebrate the authenticity, vitality and joyful energy of women. Blended by master perfumer Alberto Morillas, Gucci Bloom is created to unfold like its name, capturing the rich scent of a thriving garden filled with an abundance of flowers. Tuberose and jasmine coupled with Rangoon Creeper — a unique flower discovered in South India to create a rich fragrance that transports the wearer to an imaginary garden.',
       size: '100ml',
       category: 'Women',
-      sizes: ['100ml'], 
+      sizes: ['100ml'],
     },
     {
       id: 3,
@@ -49,7 +49,7 @@ const ProductPage = () => {
       description: 'MY WAY INTENSE is an invitation to a journey of self-discovery, meaningful encounters and amplified experiences. An amplified florality on an addictive woody trail, made of consciously sourced ingredients. The floral perfume opens with bright notes of orange blossom from Egypt. A new intense heart of tuberose from India unveils a creamy and velvety facet of the floral signature. At the base of the women’s fragrance, the sandalwood from New Caledonia takes an addictive creamy turn, as it meets a voluptuous Vanilla from Madagascar.',
       size: '50ml',
       category: 'Women',
-      sizes: ['50ml'], 
+      sizes: ['50ml'],
     },
     {
       id: 4,
@@ -61,7 +61,7 @@ const ProductPage = () => {
       description: 'Sexy is as sexy does. We bottled the essence of sensual-chic in our Michael Kors Sexy Amber, a sumptuous, nuanced fragrance that exudes allure with your every turn. A single spritz conjures warm amber wrapped in sandalwood, layered with white flowers—no wonder you feel irresistible.',
       size: '75ml',
       category: 'Women',
-      sizes: ['75ml'], 
+      sizes: ['75ml'],
     },
     {
       id: 5,
@@ -73,7 +73,7 @@ const ProductPage = () => {
       description: 'Giorgio Armani introduces Armani Code EAU DE TOILETTE, an iconic men’s fragrance entering a new era. Discover the timeless olfactory composition encapsulated in a new statement bottle that is both striking in design and crafted to last. This Ambery Woody cologne never ceases to create a mood of seductive and sensitive masculinity reflecting the contemporary, forward-looking man. With sustainability at its heart, the EAU DE TOILETTE looks towards the future with sustainable ingredients and a refillable flacon designed to last.',
       size: '50ml',
       category: 'Men',
-      sizes: ['50ml'], 
+      sizes: ['50ml'],
     },
     {
       id: 6,
@@ -85,7 +85,7 @@ const ProductPage = () => {
       description: 'BOSS The Scent eau de toilette. Exquisite notes of ginger, exotic maninka and leather unfold in BOSS The Scent over time, awakening and seducing the senses. Spritz it on for an irresistible fragrance that lasts the day.',
       size: '90ml',
       category: 'Men',
-      sizes: ['90ml'], 
+      sizes: ['90ml'],
     },
     {
       id: 7,
@@ -97,7 +97,7 @@ const ProductPage = () => {
       description: 'A fragrance that strikes you right through the heart bearing an important message for new generations about the dignity of love and the power of diversity. Versace Eros Flame is a fragrance for a strong, Passionate, self-confident man who is deeply in touch with his emotions.',
       size: '60ml',
       category: 'Men',
-      sizes: ['60ml'], 
+      sizes: ['60ml'],
     },
     {
       id: 8,
@@ -109,7 +109,7 @@ const ProductPage = () => {
       description: 'Defy by Calvin Klein is a Woody Aromatic fragrance for men. This is a new fragrance. Defy was launched in 2021. Defy was created by Anne Flipo, Pascal Gaurin and Loc Dong. Top notes are Bergamot and Lavender; middle note is Vetiver; base note is Amber',
       size: '30ml',
       category: 'Men',
-      sizes: ['30ml'], 
+      sizes: ['30ml'],
     },
   ];
 
@@ -118,7 +118,7 @@ const ProductPage = () => {
   const [minPrice, setMinPrice] = useState('');
   const [maxPrice, setMaxPrice] = useState('');
   const [selectedProduct, setSelectedProduct] = useState(null)
-  
+
   const getPrice = (price) => {
     const cleanedPrice = price.replace('LKR.', '').replace(/,/g, '').trim();
     const prices = cleanedPrice.split('–').map((str) => parseFloat(str.trim()));
@@ -169,7 +169,7 @@ const ProductPage = () => {
           open={true}
           product={selectedProduct}
           onClose={() => setSelectedProduct(null)}
-          
+
         />
       )}
     </div>

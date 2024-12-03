@@ -15,7 +15,7 @@ const Him = () => {
   ];
 
   const handleProductClick = () => {
-    navigate('/productPage'); 
+    navigate('/productPage');
   };
 
 
@@ -28,7 +28,7 @@ const Him = () => {
       {images.map((image, index) => (
         <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
           <Paper
-           onClick={() => handleProductClick(index)}
+            onClick={() => handleProductClick(index)}
             sx={{
               padding: 1,
               transition: 'transform 0.3s, box-shadow 0.3s',

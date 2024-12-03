@@ -8,6 +8,7 @@ import  Products from "../../Components/Products/Product";
 import Brand from "../../Components/Brand/Brand";
 import Contact from '../../Components/Contact/Contact';
 import About from '../../Components/About/About';
+import Footer from '../../Pages/Footer/Footer';
 
 
 const Dashboard = () => {
@@ -56,7 +57,8 @@ const Dashboard = () => {
             <div className="subTopic"> ABOUT</div>
             <About/>
             </div>
-          
+
+              <div><Footer /></div>
 
         </div>
     )

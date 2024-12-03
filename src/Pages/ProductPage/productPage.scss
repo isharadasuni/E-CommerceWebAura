@@ -4,7 +4,7 @@
 
   .productGrid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Adjust to have 4 products per row */
+    grid-template-columns: repeat(4, 1fr); 
     gap: 20px;
     margin-top: 20px;
   }

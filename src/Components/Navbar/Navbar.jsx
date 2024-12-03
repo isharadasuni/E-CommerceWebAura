@@ -15,13 +15,13 @@ import image from "../../Images/icon.png";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { useNavigate } from 'react-router-dom';
 import { selectCartCount } from '../../redux/cartSlice';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 
 
 
 const pages = ['NEW ARRIVALS', 'Products', 'Brands', 'contacts', 'about'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const settings = ['Logout'];
 
 const Navbar = () => {
 
@@ -89,6 +89,13 @@ const Navbar = () => {
         } else {
             navigate('/dashboard');
         }
+    };
+
+    // Logout function
+    const handleLogout = () => {
+
+        // Redirect to login page
+        navigate('/');
     };
 
 
@@ -198,34 +205,34 @@ const Navbar = () => {
 
                         <Tooltip title="Shopping Cart">
                             <IconButton sx={{ p: 0 }}>
-                                <ShoppingCartIcon 
-                                 onClick={() => navigate('/cart')}
-                                sx={{ fontSize: 30, color: 'white', marginRight: '12px' }} />
-                                 {cartCount > 0 && (
-                            <div style={{
-                                position: 'absolute',
-                                top: 0,
-                                right: 0,
-                                backgroundColor: 'red',
-                                color: 'white',
-                                borderRadius: '50%',
-                                padding: '5px 5px',
-                                fontSize: '12px',
-                                marginTop:'-10px',
-                               
-                               
-                            }}>
-                                {cartCount}
-                            </div>
-                        )}
-                            
-                            
+                                <ShoppingCartIcon
+                                    onClick={() => navigate('/cart')}
+                                    sx={{ fontSize: 30, color: 'white', marginRight: '12px' }} />
+                                {cartCount > 0 && (
+                                    <div style={{
+                                        position: 'absolute',
+                                        top: 0,
+                                        right: 0,
+                                        backgroundColor: 'red',
+                                        color: 'white',
+                                        borderRadius: '50%',
+                                        padding: '5px 5px',
+                                        fontSize: '12px',
+                                        marginTop: '-10px',
+
+
+                                    }}>
+                                        {cartCount}
+                                    </div>
+                                )}
+
+
                             </IconButton>
                         </Tooltip>
 
                         <Tooltip title="Open settings">
                             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                <AccountCircleIcon sx={{ fontSize: 30, color: 'white' , marginLeft:'10px'}} />
+                                <AccountCircleIcon sx={{ fontSize: 30, color: 'white', marginLeft: '10px' }} />
                             </IconButton>
                         </Tooltip>
                         <Menu
@@ -245,7 +252,10 @@ const Navbar = () => {
                             onClose={handleCloseUserMenu}
                         >
                             {settings.map((setting) => (
-                                <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                                <MenuItem
+                                    key={setting}
+                                    onClick={setting === 'Logout' ? handleLogout : handleCloseUserMenu}
+                                >
                                     <Typography sx={{ textAlign: 'center' }}>{setting}</Typography>
                                 </MenuItem>
                             ))}

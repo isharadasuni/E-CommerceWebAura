@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   items: [],
-  resetCount: false, // flag to reset the count when navigating to the cart page
+  resetCount: false, 
 };
 
 const cartSlice = createSlice({
@@ -39,10 +39,10 @@ const cartSlice = createSlice({
 export const { addToCart, removeFromCart, resetCartCount, resetCountComplete } = cartSlice.actions;
 export const selectCartItems = (state) => state.cart.items;
 
-// This selector computes the total count of items in the cart unless resetCount is true
+ 
 export const selectCartCount = (state) => {
   if (state.cart.resetCount) {
-    return 0; // return 0 when resetting the count
+    return 0;  
   }
   return state.cart.items.reduce((total, item) => total + item.quantity, 0);
 };

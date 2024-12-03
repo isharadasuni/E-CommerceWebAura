@@ -12,7 +12,7 @@ import pr3 from "../../Images/product 3.webp";
 const Product = () => {
   const navigate = useNavigate();
 
- 
+
   const products = [
     {
       src: pr1,
@@ -37,9 +37,9 @@ const Product = () => {
     },
   ];
 
-  
+
   const handleProductClick = () => {
-    navigate('/productPage'); 
+    navigate('/productPage');
   };
 
 
@@ -53,7 +53,7 @@ const Product = () => {
         {products.map((product, index) => (
           <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
             <Paper
-             onClick={() => handleProductClick(index)}
+              onClick={() => handleProductClick(index)}
               sx={{
                 padding: 2,
                 textAlign: 'center',
@@ -93,11 +93,11 @@ const Product = () => {
         sx={{
           marginBottom: '40px',
           padding: '10px 20px',
-          backgroundColor: '#974e4e',  
+          backgroundColor: '#974e4e',
           color: '#fff',
           fontWeight: 'bold',
           '&:hover': {
-            backgroundColor: '#c35f5f', 
+            backgroundColor: '#c35f5f',
           },
         }}
         onClick={() => navigate('/productPage')}

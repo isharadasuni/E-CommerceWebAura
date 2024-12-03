@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import Navbar from '../../Components/Navbar/Navbar';
-import { useSelector, useDispatch } from 'react-redux';  
-import { Typography,  Button} from '@mui/material'; 
-import { removeFromCart, resetCartCount, resetCountComplete } from '../../redux/cartSlice'; 
+import { useSelector, useDispatch } from 'react-redux';
+import { Typography, Button } from '@mui/material';
+import { removeFromCart, resetCartCount, resetCountComplete } from '../../redux/cartSlice';
 
 
 const Cart = () => {
 
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   // Access cart items from Redux store
   const cartItems = useSelector(state => state.cart.items);
@@ -15,10 +15,9 @@ const Cart = () => {
   // Calculate total price
   const totalPrice = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
 
-// Handle removing an item from the cart
-
-const handleRemoveItem = (itemId) => {
-    dispatch(removeFromCart(itemId));   
+  // Handle removing an item from the cart
+  const handleRemoveItem = (itemId) => {
+    dispatch(removeFromCart(itemId));
   };
 
   useEffect(() => {
@@ -48,10 +47,10 @@ const handleRemoveItem = (itemId) => {
                   <Typography variant="body2" color="textSecondary">{item.brand}</Typography>
                   <Typography variant="body1" sx={{ color: '#974e4e' }}>LKR {item.price}.00</Typography>
                   <Typography variant="body2">Quantity: {item.quantity}</Typography>
-                  <Button 
-                    variant="outlined" 
-                    color="error" 
-                    onClick={() => handleRemoveItem(item.id)} 
+                  <Button
+                    variant="outlined"
+                    color="error"
+                    onClick={() => handleRemoveItem(item.id)}
                     sx={{ marginTop: '10px', marginLeft: '10px' }}
                   >
                     Remove
@@ -60,7 +59,7 @@ const handleRemoveItem = (itemId) => {
               </div>
             ))}
             {/* Display total price */}
-            <Typography variant="h5" sx={{ color: '#974e4e', marginTop: '20px'  }}>
+            <Typography variant="h5" sx={{ color: '#974e4e', marginTop: '20px' }}>
               Total Price: LKR {totalPrice.toFixed(2)}
             </Typography>
           </div>

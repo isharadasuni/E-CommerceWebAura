@@ -13,12 +13,11 @@ const ProductModel = ({ open, product, onClose }) => {
   if (!open) return null;
 
 
-
-
   const handleQuantityChange = (event) => {
     const value = Math.max(1, Math.min(event.target.value, product.quantity));
     setAddedQuantity(value);
   };
+
 
   // Handle Add to Cart
   const handleAddToCart = () => {
@@ -32,6 +31,7 @@ const ProductModel = ({ open, product, onClose }) => {
       size: product.size,
       category: product.category,
     };
+
     dispatch(addToCart(cartProduct));
 
     // Set success message
@@ -45,6 +45,7 @@ const ProductModel = ({ open, product, onClose }) => {
 
 
   return (
+
     <div
       style={{
         position: "fixed",
@@ -83,9 +84,11 @@ const ProductModel = ({ open, product, onClose }) => {
             <Typography variant="h4" component="h1" gutterBottom>
               {product.name}
             </Typography>
+
             <Typography variant="h6" color="textSecondary" paragraph>
               {product.brand}
             </Typography>
+
             <Typography variant="h5" color="primary" paragraph
               sx={{
                 color: '#974e4e',
@@ -98,6 +101,7 @@ const ProductModel = ({ open, product, onClose }) => {
             <Typography variant="body1" paragraph sx={{ color: '#974e4e' }}>
               Available: {product.quantity} in stock
             </Typography>
+
             {/* Quantity Selector */}
             <TextField
               type="number"
@@ -136,7 +140,6 @@ const ProductModel = ({ open, product, onClose }) => {
 
             <Button
               variant="outlined"
-
               onClick={onClose}
               style={{ marginLeft: "10px", color: " rgba(41, 39, 39, 0.932)", borderColor: "rgba(41, 39, 39, 0.932)" }}
             >
@@ -145,22 +148,25 @@ const ProductModel = ({ open, product, onClose }) => {
           </Grid>
         </Grid>
 
- 
+
         {/* Description Section with a border and alignment */}
-        <div >
+        <div style={{ marginTop: '50px' }} >
           <Typography
             variant="h6"
             style={{
+
               color: " rgba(41, 39, 39, 0.932)",
               fontWeight: "bold",
               textAlign: "left",
-              marginTop:"-80px"
+              marginTop: "-80px"
             }}
           >
             Description
           </Typography>
+          
           <Typography variant="body1"
             style={{
+
               border: "2px solid #974e4e",
               textAlign: "left",
               padding: "10px",
