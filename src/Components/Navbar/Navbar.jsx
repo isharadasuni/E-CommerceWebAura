@@ -14,6 +14,9 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import image from "../../Images/icon.png";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { useNavigate } from 'react-router-dom';
+import { selectCartCount } from '../../redux/cartSlice';
+import { useDispatch, useSelector } from 'react-redux';
+
 
 
 
@@ -25,6 +28,7 @@ const Navbar = () => {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
     const navigate = useNavigate();
+    const cartCount = useSelector(selectCartCount);
 
 
     const handleOpenNavMenu = (event) => {
@@ -47,6 +51,8 @@ const Navbar = () => {
         const element = document.getElementById("newArivals");
         if (element) {
             element.scrollIntoView({ behavior: 'smooth' });
+        } else {
+            navigate('/dashboard');
         }
     };
 
@@ -62,6 +68,8 @@ const Navbar = () => {
         const element = document.getElementById("brand");
         if (element) {
             element.scrollIntoView({ behavior: 'smooth' });
+        } else {
+            navigate('/dashboard');
         }
     };
 
@@ -69,6 +77,8 @@ const Navbar = () => {
         const element = document.getElementById("contact");
         if (element) {
             element.scrollIntoView({ behavior: 'smooth' });
+        } else {
+            navigate('/dashboard');
         }
     };
 
@@ -76,6 +86,8 @@ const Navbar = () => {
         const element = document.getElementById("about");
         if (element) {
             element.scrollIntoView({ behavior: 'smooth' });
+        } else {
+            navigate('/dashboard');
         }
     };
 
@@ -94,7 +106,7 @@ const Navbar = () => {
                         variant="h4"
                         noWrap
                         component="a"
-                        href="#app-bar-with-responsive-menu"
+                        onClick={() => navigate('/dashboard')}
                         sx={{
                             mr: 2,
                             display: { xs: 'none', md: 'flex' },
@@ -103,6 +115,7 @@ const Navbar = () => {
                             letterSpacing: '.3rem',
                             color: 'inherit',
                             textDecoration: 'none',
+                            cursor: 'pointer'
 
                         }}
                     >
@@ -137,7 +150,9 @@ const Navbar = () => {
                             sx={{ display: { xs: 'block', md: 'none' } }}
                         >
                             {pages.map((page) => (
-                                <MenuItem key={page} onClick={handleCloseNavMenu}>
+                                <MenuItem key={page} onClick={page === 'NEW ARRIVALS' ? handleNewArrivalsClick : page === 'Products' ? handlePageClick :
+                                    page === 'Brands' ? handleBrandClick : page === 'contacts' ? handleContactClick :
+                                        page === 'about' ? handleAboutClick : handleCloseNavMenu}>
                                     <Typography sx={{ textAlign: 'center' }}>{page}</Typography>
                                 </MenuItem>
                             ))}
@@ -148,9 +163,10 @@ const Navbar = () => {
                         variant="h4"
                         noWrap
                         component="a"
-                        href="#app-bar-with-responsive-menu"
+                        onClick={() => navigate('/dashboard')}
                         sx={{
                             mr: 2,
+
                             display: { xs: 'flex', md: 'none' },
                             flexGrow: 1,
                             fontFamily: 'monospace',
@@ -158,6 +174,7 @@ const Navbar = () => {
                             letterSpacing: '.3rem',
                             color: 'inherit',
                             textDecoration: 'none',
+                            cursor: 'pointer'
                         }}
                     >
                         AURA
@@ -181,13 +198,34 @@ const Navbar = () => {
 
                         <Tooltip title="Shopping Cart">
                             <IconButton sx={{ p: 0 }}>
-                                <ShoppingCartIcon sx={{ fontSize: 30, color: 'white', marginRight: '20px' }} />
+                                <ShoppingCartIcon 
+                                 onClick={() => navigate('/cart')}
+                                sx={{ fontSize: 30, color: 'white', marginRight: '12px' }} />
+                                 {cartCount > 0 && (
+                            <div style={{
+                                position: 'absolute',
+                                top: 0,
+                                right: 0,
+                                backgroundColor: 'red',
+                                color: 'white',
+                                borderRadius: '50%',
+                                padding: '5px 5px',
+                                fontSize: '12px',
+                                marginTop:'-10px',
+                               
+                               
+                            }}>
+                                {cartCount}
+                            </div>
+                        )}
+                            
+                            
                             </IconButton>
                         </Tooltip>
 
                         <Tooltip title="Open settings">
                             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                <AccountCircleIcon sx={{ fontSize: 30, color: 'white' }} />
+                                <AccountCircleIcon sx={{ fontSize: 30, color: 'white' , marginLeft:'10px'}} />
                             </IconButton>
                         </Tooltip>
                         <Menu

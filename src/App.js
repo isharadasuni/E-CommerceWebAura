@@ -4,6 +4,8 @@ import Login from "./Pages/Login/Login";
 import Registration from "./Pages/Registration/Registration";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import ProductPage from "./Pages/ProductPage/ProductPage";
+import ProductModel from "./Pages/ProductPage/ProductModel";
+import Cart from "./Pages/Cart/Cart";
 
 function App() {
 
@@ -17,7 +19,8 @@ function App() {
         <Route path="/registration" element={<Registration />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/productPage" element={<ProductPage />} />
-        
+        <Route path="/productPage/:id" element={<ProductModel />} />
+        <Route path="/cart" element={<Cart />} />
 
       </Routes>
 
